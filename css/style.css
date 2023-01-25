@@ -1,0 +1,433 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'icones';
+    src: url(../assets/font/icones.ttf);
+}
+
+:root{
+    --cor_corpo:         #1D232A;
+    --cor_cabecalho:     #1D232A;
+    --cor_cabecalhomob:  #15191C;
+    --cor_menulateral:   #15191C;
+    --cor_cartao:        #2C343A;
+    --cor_fonte:         #FFFFFF;
+    --cor_fontealt:      #95999C;
+    --cor_link:          #0480DC;
+    --cor_botao:         #0480DC;
+}
+
+body{
+    background-color: var(--cor_corpo);
+    font-family: 'Open Sans', 'icones', sans-serif;
+    color: var(--cor_fonte);
+}
+
+@media screen and (min-width: 1440px){
+    body{
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+}
+
+/* CABEÇALHO */
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cor_cabecalhomob);
+    padding: 8px 16px;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0,16);
+}
+
+.cabecalho_logo{
+    width: 50px;
+}
+
+.cabecalho_perfil{
+    display: none;
+}
+
+@media screen and (min-width: 1440px){
+    .cabecalho{
+        background-color: var(--cor_cabecalho);
+        display: grid;
+        column-gap: 32px;
+        grid-template-columns: 1fr auto;
+        padding: 16px 60px;
+        height: 80px;
+        box-sizing: border-box;
+        grid-column: 2;
+    }
+
+    .cabecalho_menu{
+        display: none;
+    }
+
+    .cabecalho_logo{
+        display: none;
+    }
+
+    .cabecalho_perfil{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        column-gap: 8px;
+        align-items: center;
+        justify-self: flex-end;
+        color: var(--cor_fontealt);
+        padding: 8px 32px;
+        border-right: 1px solid var(--cor_fontealt);
+    }
+
+    .cabecalho_perfil::before{
+        content: "";
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-image: url(../img/profile_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .cabecalho_perfil::after{
+        content: "\e90d";
+        color: white;
+        font-size: 1.5rem;
+    }
+}
+
+.cabecalho_menu i::before{
+    content:"\e904";
+    font-size: 24px;
+}
+
+.cabecalho_notificacao i::before{
+    content: "\e906";
+    font-size: 24px;
+}
+
+/* MENU */
+
+.menu_lateral{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor_menulateral);
+    width: 75vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    transition: .25s;
+}
+
+.menu_lateral-ativo{
+    left: -100vw;
+    transition: 0.25s;
+}
+
+.menu_lateral_logo{
+    width: 118px;
+    align-self: center;
+    padding: 16px;
+}
+
+.menu_lateral_link{
+    height: 64px;
+    color: var(--cor_fontealt);
+    padding: 0px 0px 0px 64px;
+    display: flex;
+    align-items: center;
+}
+
+.menu_lateral_link-ativo{
+    color: #FFFFFF;
+    padding-left: 56px;
+    border-left: 8px solid #FFFFFF;
+}
+
+.menu_lateral_link:before{
+    content: "\e900";
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    left: 24px;
+}
+
+.menu_lateral_link-inicio::before{
+    content: "\e902";
+}
+
+.menu_lateral_link-videos::before{
+    content: "\e90e";
+}
+
+.menu_lateral_link-picos::before{
+    content: "\e909";
+}
+
+.menu_lateral_link-integrantes::before{
+    content: "\e903";
+}
+
+.menu_lateral_link-camisas::before{
+    content: "\e900";
+}
+
+.menu_lateral_link-pinturas::before{
+    content: "\e90a";
+}
+
+@media screen and (min-width: 1440px){
+    .menu_lateral{
+        position: static;
+        width: 200px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+}
+
+/* CONTEUDO PRINCIPAL */
+
+.principal{
+    padding: 24px 16px;
+    display: grid;
+    gap: 16px;
+}
+
+.titulo_pagina{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.titulo_secao{
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin: 15px;
+}
+
+@media screen and (min-width: 1440px){
+    .principal{
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "titulo-pagina titulo-pagina titulo-pagina"
+            "destaque-video destaque-video videos-recentes"
+            "secao-videos secao-videos secao-videos"
+            "produtos-recentes destaque-produtos destaque-produtos"
+            "secao-produtos secao-produtos secao-produtos"
+        ;
+        column-gap: 32px;
+        padding: 16px 60px;
+        grid-column: 2;
+    }
+
+    .titulo_secao{
+        grid-column: span 4;
+    }
+}
+
+.cartao{
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--cor_cartao);
+}
+
+.cartao_imagem-desktop{
+    display: none;
+}
+
+.cartao-destaque{
+    margin-bottom: 16px;
+}
+
+.cartao_conteudo{
+    padding: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+}
+
+.cartao_destaque{
+    grid-column: span 2;
+}
+
+.cartao_titulo{
+    font-size: 1.2rem;
+    font-weight: bold;
+    grid-column: span 2;
+}
+
+.cartao_perfil{
+    color: var(--cor_fontealt);
+    font-size: 0.9rem;
+    grid-column: span 2;
+}
+
+.cartao_info{
+    display: flex;
+    align-items: center;
+    color: var(--cor_fontealt)
+}
+
+.cartao_info-tempo::before{
+    content: "\e90c";
+    margin-right: 8px;
+}
+
+.cartao_info-visu::before{
+    content: "\e90f";
+    margin-right: 8px;
+}
+
+.cartao_info-preco::before{
+    content: "\e905";
+    margin-right: 8px;
+}
+
+.cartao_botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor_botao);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    justify-self: flex-end;
+}
+
+.cartao_botao-destaque{
+    width: 100%;
+    grid-column: span 2;
+}
+
+.cartao_botao-destaque::before{
+    margin-right: 8px;
+}
+
+.cartao_botao-play::before{
+    content: "\e90b";
+    font-size: 24px;
+}
+
+.cartao_botao-comprar::before{
+    content: "\e901";
+    margin-right: 8px;
+    font-size: 1.7em;
+}
+
+.cartao_recentes{
+    display: none;
+}
+
+@media screen and (min-width: 1440px){
+    .cartao-destaque{
+        margin-bottom: 0px;
+    }
+
+    .cartao_imagem-mobile{
+        display: none;
+    }
+
+    .cartao_imagem-desktop{
+        display: block;
+    }
+
+    .cartao_botao-destaque{
+        grid-column: auto;
+        padding: 16px 8px;
+    }
+
+    .cartao_recentes{
+        background-color: var(--cor_cartao);
+        border-radius: 15px;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+        row-gap: 24px;
+        width: 256px;
+        padding: 16px;
+        box-sizing: border-box;
+        align-self: flex-start;
+    }
+
+    .cartao_recentes .cartao_titulo{
+        grid-column: auto;
+    }
+
+    .cartao_link{
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--cor_link);
+        justify-self: flex-end;
+    }
+
+    .cartao_lista{
+        display: grid;
+        row-gap: 16px;
+        grid-column: span 2;
+    }
+
+    .cartao_item{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px;
+    }
+
+    .cartao_item-thumbnail{
+        width: 32px;
+        border-radius: 5px;
+        grid-row: span 2;
+    }
+
+    .cartao_item-titulo{
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+        font-weight: bold;
+    }
+
+    .cartao_item-perfil{
+        font-size: 0.8rem;
+        color: var(--cor_fontealt);
+    }
+}
+
+/* SEÇÃO */
+
+.secao{
+    display: grid;
+    gap: 16px;
+}
+
+@media screen and (min-width: 1440px){
+    .secao{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .destaque-video{
+        grid-area: destaque-video;
+    }
+    
+    .videos-recentes{
+        grid-area: videos-recentes;
+    }
+    
+    .secao-videos{
+        grid-area: secao-videos;
+    }
+    
+    .destaque-produtos{
+        grid-area: destaque-produtos;
+    }
+    
+    .produtos-recentes{
+        grid-area: produtos-recentes;
+    }
+    
+    .secao-produtos{
+        grid-area: secao-produtos;
+    }
+}
