@@ -1,11 +1,11 @@
 <h1 align="center"> 🛹 Lucas Baptista - HZC Comunidade Skatista 🚀 </h1>
 
 <p align="center">
- <a href="https://github.com/luscabap/lusca-projeto_hzc/edit/main/README.md#%EF%B8%8F-sobre-o-projeto">Sobre</a> •
- <a href="https://github.com/luscabap/lusca-projeto_hzc/edit/main/README.md#%EF%B8%8F-layout">Layout</a> • 
- <a href="https://github.com/luscabap/lusca-projeto_hzc/edit/main/README.md#-tecnologias">Tecnologias</a> • 
- <a href="https://github.com/luscabap/lusca-projeto_hzc/edit/main/README.md#-desenvolvedor">Desenvolvedor</a> • 
- <a href="https://github.com/luscabap/lusca-projeto_hzc/edit/main/README.md#-licen%C3%A7a">Licença</a>
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-autor">Desenvolvedor</a> • 
+ <a href="#user-content--licença">Licença</a>
 </p>
 
 ## 🖥️ Sobre o projeto
